@@ -1,5 +1,7 @@
 package com.wiley.assignment1;
 
+import com.sun.jdi.connect.Connector;
+
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
@@ -35,11 +37,25 @@ public class Factorial {
 
 		//YOUR CODE STARTS HERE
 
-		return -1;
+		final int MIN_VALUE = 1;
+		final int MAX_VALUE = 10;
 
+		// Get valid integer input within range
+		try{
+			 System.out.print("Enter a number: ");
+			 num = Integer.parseInt(scanner.nextLine());
+			 if (num < MIN_VALUE || num > MAX_VALUE){
+				 throw new NumberFormatException();
+			 }
+		}
+		catch (NumberFormatException e){
+			this.printStream.print("Invalid entry. Please enter an integer between 1 and 10, inclusive.");
+			return -1;
+		}
+		return num;
 		//YOUR CODE ENDS HERE
-		 
-			
+
+
 	 }
 	
 	 
@@ -54,7 +70,10 @@ public class Factorial {
 		int result = 1;
 		//YOUR CODE STARTS HERE
 
- 
+		// Calculate Factorial value
+		for(int i = 1; i <= num; i++){
+			result *= i;
+		}
 
 		//YOUR CODE ENDS HERE
 		this.printStream.print("The Factorial is: " + result);		
