@@ -36,14 +36,13 @@ public class Factorial {
 		*/
 
 		//YOUR CODE STARTS HERE
-
 		final int MIN_VALUE = 1;
 		final int MAX_VALUE = 10;
-
 		// Get valid integer input within range
 		try{
 			 System.out.print("Enter a number: ");
 			 num = Integer.parseInt(scanner.nextLine());
+			 // Make sure it is within a valid range
 			 if (num < MIN_VALUE || num > MAX_VALUE){
 				 throw new NumberFormatException();
 			 }
